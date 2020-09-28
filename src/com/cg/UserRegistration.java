@@ -12,9 +12,11 @@ public class UserRegistration {
 		String lastName;
 		String email;
 		String phoneNumber;
+		String password;
 		String namePattern = "^[A-Z]{1}[A-Za-z]{2,}";
 		String emailPattern = "^[a-zA-Z0-9+_-]+([.][a-zA-Z0-9]+)*@([a-zA-Z0-9]+)([.][a-z]+)?[.][a-z]{2,}$";
 		String phoneNumberPattern = "^[0-9]{1,}[ ][1-9][0-9]{9}$";
+		String passwordPattern = "^.{8,}$";
 
 		boolean match = false;
 		System.out.println("Enter the first name:");
@@ -42,7 +44,7 @@ public class UserRegistration {
 			email = sc.nextLine();
 			match = Pattern.matches(emailPattern, email);
 			if (!match)
-				System.out.println("Invalid email, Please enter a valid email)");
+				System.out.println("Invalid email format, Please enter a valid email)");
 		}
 		System.out.println("Email is added successfully\n");
 
@@ -52,7 +54,17 @@ public class UserRegistration {
 			phoneNumber = sc.nextLine();
 			match = Pattern.matches(phoneNumberPattern, phoneNumber);
 			if (!match)
-				System.out.println("Invalid phone Number, Please enter a valid phone Number)");
+				System.out.println("Invalid phone Number format, Please enter a valid phone Number)");
+		}
+		System.out.println("Phone Number is added successfully\n");
+		
+		match = false;
+		System.out.println("Enter the Password:");
+		while (!match) {
+			password = sc.nextLine();
+			match = Pattern.matches(passwordPattern, password);
+			if (!match)
+				System.out.println("Invalid password format, Please enter a valid password)");
 		}
 		System.out.println("Phone Number is added successfully\n");
 	}
